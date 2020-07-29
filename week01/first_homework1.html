@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <title>원페이지 홈쇼핑</title>
+    <style>
+        * {
+            font-family: 'Do Hyeon', sans-serif;
+        }
+
+        .myitem {
+            width: 500px;
+            height: 300px;
+
+            background-image: url("https://img.danawa.com/prod_img/500000/220/761/img/3761220_1.jpg?shrink=500:500&_v=20200619124524");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .price {
+            font-size: 15px;
+
+        }
+        .desc{
+            width: 500px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+        }
+        .mybtn{
+            width: 100px;
+            margin: auto;
+            display: block;
+
+        }
+        .wrap{
+            width: 500px;
+            margin: auto;
+        }
+    </style>
+    <script>
+    function order() {
+        alert("주문이 성공적으로 되었습니다:)")
+    }
+</script>
+</head>
+
+<body>
+<div class= "wrap">
+    <div class="myitem"></div>
+    <div class="desc">
+        <h1>콜라겐 팝니다.<span class="price">가격: 49000원/개</span></h1>
+        <p>나이가 들수록 첫인상에서 피부는 나에 대한 많은 이야기를 해줍니다. 누구보다 더 열심히 그리고 밝게 잘 살아온 당신, 피부가 당신의 인생을 이야기해주기에 이제, 에버콜라겐으로 당신의 인생을
+            완성하세요.</p>
+    </div>
+    <div class="order-box">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">주문자 성함:</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량:</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>----수량을 선택하세요----</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">주소:</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">전화번호:</span>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+
+        </div>
+        <button onclick="order()" type="button" class="btn btn-primary mybtn">주문하기</button>
+
+    </div>
+</div>
+</body>
+
+</html>

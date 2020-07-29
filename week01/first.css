@@ -1,0 +1,17 @@
+
+    <style>
+        .login-title {
+            color: yellow;
+            width: 200px;
+            height: 200px;
+            background-image: url('https://search.naver.com/search.naver?where=image&section=image&query=%EC%82%AC%ED%83%95&res_fr=153600&res_to=786431&sm=tab_opt&face=0&color=0&ccl=0&nso=so%3Ar%2Ca%3Aall%2Cp%3Aall&datetype=0&startdate=0&enddate=0&start=1#imgId=blog6801790%7C41%7C130133706920_1693490129&vType=rollout');
+            background-position: center;
+            background-size: cover;
+
+            border-radius: 10px;
+            text-align: center;
+            padding-top: 40px;
+
+        }
+    </style>
+</head>
