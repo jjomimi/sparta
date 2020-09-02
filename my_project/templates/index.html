@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="조영미" content="비건레스토랑">
+    <meta name="description" content="비건레스토랑을 찾을 수 있어">
+    <meta name="keywords" content="비건, 비건베이커리, 비건식당">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMI Vegan</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+
+    <!-- style -->
+    <link rel="style" type="text/css" href="static/style">
+    <link rel="style" type="text/css" href="static/style">
+
+    <!-- 구글 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Nanum Gothic', sans-serif;
+            margin: 0;
+
+        }
+
+        #wrap {
+            width: 100%;
+            padding-top: 20px;
+            padding-left: 50px;
+
+        }
+
+
+        #contents {
+            width: 100%;
+            padding-right: 50px;
+
+        }
+
+        #header {
+            margin-bottom: 20px;
+        }
+
+        #logo {
+            width: 400px;
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+
+
+
+
+    </style>
+    <script>
+        let current_target = null
+
+        function vegan_restaurant() {
+            if ($('#vegan_restaurant').css('display') == 'block') {
+                $('#vegan_restaurant').hide('card');
+
+            } else {
+                $('vegan_restaurant').show();
+            }
+
+        }
+
+        function makeAndAppendCard(target, type) {
+            $.ajax({
+                method: 'GET',
+                url: `/restaurant/list?type=${type}`,
+                data: {},
+                success: function (response) {
+                    console.log(current_target, target)
+                    $(`#${current_target}`).css('background-color', 'white')
+                    $(`#${current_target}`).css('color', 'white')
+                    $(`#${target}`).css('background-color', 'green')
+                    $(`#${target}`).css('color', 'white')
+                    console.log(response)
+                    $('#card_contents').empty()
+                    const vegan_list = response['vegan_list']
+
+                    for (let i = 0; i < vegan_list.length; i++) {
+                        const vegan = vegan_list[i]
+                        $('#card_contents').append(`
+                        <div class="col mb-4">
+                            <div class="card">
+                                <img src= "{{ url_for('static', filename ='veganimage.jpg') }}" onclick="goToUrl('${vegan["link"]}')" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">${vegan['title']}</h5>
+                                    <p class="card-text">${vegan['address']}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+                        current_target = target
+                    }
+                }
+            })
+        }
+
+        function goToUrl(link) {
+            window.location = link
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        <img id="logo" src="/static/vegalogo.png/">
+    </div>
+    <div id="contents">
+        <p>
+            <button id="vegan_restaurant" type="button" class="btn btn-default btn-lg" style="color: green"
+
+                    onclick="makeAndAppendCard('vegan_restaurant', '비건 식당')">비건식당</button>
+
+
+            <button id="vegan_bakery" type="button" class="btn btn-default btn-lg" style="color: green"
+                    onclick="makeAndAppendCard('vegan_bakery', '비건 베이커리')">비건베이커리</button>
+        <div id="card_contents" class="row row-cols-1 row-cols-md-2"></div>
+        </p>
+    </div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</body>
+
+</html>
+
+
+
+
+
+
